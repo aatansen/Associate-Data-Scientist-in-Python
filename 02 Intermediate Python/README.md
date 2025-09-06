@@ -53,6 +53,32 @@
       - [Driving right (2)](#driving-right-2)
       - [Cars per capita (1)](#cars-per-capita-1)
       - [Cars per capita (2)](#cars-per-capita-2)
+    - [Loops](#loops)
+      - [while: warming up](#while-warming-up)
+      - [Basic while loop](#basic-while-loop)
+      - [Add conditionals](#add-conditionals)
+      - [Loop over a list](#loop-over-a-list)
+      - [Indexes and values (1)](#indexes-and-values-1)
+      - [Indexes and values (2)](#indexes-and-values-2)
+      - [Loop over list of lists](#loop-over-list-of-lists)
+      - [Loop over dictionary](#loop-over-dictionary)
+      - [Loop over NumPy array](#loop-over-numpy-array)
+      - [Loop over DataFrame (1)](#loop-over-dataframe-1)
+      - [Loop over DataFrame (2)](#loop-over-dataframe-2)
+      - [Add column (1)](#add-column-1)
+      - [Add column (2)](#add-column-2)
+    - [Case Study: Hacker Statistics](#case-study-hacker-statistics)
+      - [Random float](#random-float)
+      - [Roll the dice](#roll-the-dice)
+      - [Determine your next move](#determine-your-next-move)
+      - [The next step](#the-next-step)
+      - [How low can you go?](#how-low-can-you-go)
+      - [Visualize the walk](#visualize-the-walk)
+      - [Simulate multiple walks](#simulate-multiple-walks)
+      - [Visualize all walks](#visualize-all-walks)
+      - [Implement clumsiness](#implement-clumsiness)
+      - [Plot the distribution](#plot-the-distribution)
+      - [Calculate the odds](#calculate-the-odds)
 
 ## **[Intermediate Python](https://www.datacamp.com/courses/intermediate-python)**
 
@@ -1082,3 +1108,609 @@ if room == "kit" :
 
 [⬆️ Go to Context](#context)
 
+### Loops
+
+#### while: warming up
+
+- The `while` loop is like a repeated if statement. The code is executed over and over again, as long as the condition is `True`. Have another look at its recipe.
+
+  ```py
+  while condition :
+      expression
+  ```
+
+  Can you tell how many printouts the following `while` loop will do?
+
+    ```py
+    x = 1
+    while x < 4 :
+        print(x)
+        x = x + 1
+    ```
+
+  - [ ] 0
+  - [ ] 1
+  - [ ] 2
+  - [ ] 3
+  - [ ] 4
+
+  > [Answer](# "3")
+
+[⬆️ Go to Context](#context)
+
+#### [Basic while loop](./04%20Loops/01_basic_while_loop.py)
+
+- Create the variable offset with an initial value of `8`.
+Code a `while` loop that keeps running as long as offset is not equal to `0`. Inside the `while` loop:
+- Print out the sentence "correcting...".
+Next, decrease the value of offset by `1`. You can do this with `offset = offset - 1`.
+- Finally, still within your loop, print out offset so you can see how it changes.
+
+  ```py
+  # Initialize offset
+
+
+  # Code the while loop
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Add conditionals](./04%20Loops/01_basic_while_loop.py)
+
+- Initialize offset to ` -6`.
+- Inside the `while` loop, complete the if-else statement:
+  - If `offset` is greater than zero, you should decrease offset by `1`.
+  - Else, you should increase offset by `1`.
+
+> If your code is taking too long to run (or your session is expiring), you probably made a mistake. Check your code and make sure that the statement `offset != 0` will eventually evaluate to `FALSE`!
+
+  ```py
+  # Initialize offset
+  offset = -6
+
+  # Code the while loop
+  while offset != 0 :
+      print("correcting...")
+      if ____ :
+        ____
+      else : 
+        ____
+      print(offset)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Loop over a list](./04%20Loops/03_loop_over_a_list.py)
+
+- Write a `for` loop that iterates over all elements of the `areas` list and prints out every element separately.
+
+  ```py
+  # areas list
+  areas = [11.25, 18.0, 20.0, 10.75, 9.50]
+
+  # Code the for loop
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Indexes and values (1)](./04%20Loops/04_indexes_and_values_1.py)
+
+- Adapt the for loop in the sample code to use `enumerate()` and use two `iterator` variables.
+- Update the `print()` statement so that on each run, a line of the form "`room x: y`" should be printed, where x is the index of the `list` element and `y` is the actual `list` element, i.e. the area. Make sure to print out this exact `string`, with the correct spacing.
+
+  ```py
+  # areas list
+  areas = [11.25, 18.0, 20.0, 10.75, 9.50]
+
+  # Change for loop to use enumerate() and update print()
+  for a in areas :
+      print(a)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Indexes and values (2)](./04%20Loops/05_indexes_and_values_2.py)
+
+- Adapt the `print()` function in the `for` loop so that the first printout becomes
+  - "`room 1: 11.25`", the second one
+  - "`room 2: 18.0`" and so on.
+
+  ```py
+  # areas list
+  areas = [11.25, 18.0, 20.0, 10.75, 9.50]
+
+  # Code the for loop
+  for index, area in enumerate(areas) :
+      print("room " + str(index) + ": " + str(area))
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Loop over list of lists](./04%20Loops/06_loop_over_list_of_lists.py)
+
+- Write a for loop that goes through each sublist of house and prints out `the x is y sqm`, where `x` is the name of the room and `y` is the area of the room.
+
+  ```py
+  # house list of lists
+  house = [["hallway", 11.25],
+          ["kitchen", 18.0],
+          ["living room", 20.0],
+          ["bedroom", 10.75],
+          ["bathroom", 9.50]]
+
+  # Build a for loop from scratch
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Loop over dictionary](./04%20Loops/07_loop_over_dictionary.py)
+
+- Write a `for` loop that goes through each key:value pair of europe. On each iteration, "`the capital of x is y`" should be printed out, where `x` is the key and `y` is the value of the pair.
+
+  ```py
+  # Definition of dictionary
+  europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin',
+            'norway':'oslo', 'italy':'rome', 'poland':'warsaw', 'austria':'vienna' }
+
+  # Iterate over europe
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Loop over NumPy array](./04%20Loops/08_loop_over_numpy_array.py)
+
+- Import the numpy package under the local alias `np`.
+- Write a `for` loop that iterates over all elements in `np_height` and prints out "`x inches`" `for` each element, where `x` is the value in the array.
+- Write a `for` loop that visits every element of the `np_baseball` array and prints it out.
+
+  ```py
+  # Import numpy as np
+
+
+  # For loop over np_height
+
+
+  # For loop over np_baseball
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Loop over DataFrame (1)](./04%20Loops/09_loop_over_dataframe_1.py)
+
+- Write a `for` loop that iterates over the rows of `cars` and on each iteration perform two `print()` calls: one to print out the row label and one to print out all of the rows contents.
+
+  ```py
+  # Import cars data
+  import pandas as pd
+  cars = pd.read_csv('cars.csv', index_col = 0)
+
+  # Iterate over rows of cars
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Loop over DataFrame (2)](./04%20Loops/10_loop_over_dataframe_2.py)
+
+- Using the iterators lab and row, adapt the code in the `for` loop such that the first iteration prints out "`US: 809`", the second iteration "`AUS: 731`", and so on.
+- The `output` should be in the form "country: cars_per_cap". Make sure to print out this exact string (with the correct spacing).
+- You can use `str()` to convert your integer data to a string so that you can print it in conjunction with the country label.
+
+  ```py
+  # Import cars data
+  import pandas as pd
+  cars = pd.read_csv('cars.csv', index_col = 0)
+
+  # Adapt for loop
+  for lab, row in cars.iterrows() :
+      print(lab)
+      print(row)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Add column (1)](./04%20Loops/11_add_column_1.py)
+
+- Use a `for` loop to add a new column, named `COUNTRY`, that contains a uppercase version of the country names in the "`country`" column. You can use the string method `upper()` for this.
+- To see if your code worked, print out `cars`. Don't indent this code, so that it's not part of the `for` loop.
+
+  ```py
+  # Import cars data
+  import pandas as pd
+  cars = pd.read_csv('cars.csv', index_col = 0)
+
+  # Code for loop that adds COUNTRY column
+
+
+
+  # Print cars
+  print(cars)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Add column (2)](./04%20Loops/12_add_column_2.py)
+
+- Replace the `for` loop with a one-liner that uses `.apply(str.upper)`. The call should give the same result: a column `COUNTRY` should be added to cars, containing an uppercase version of the `country` names.
+- As usual, `print` out `cars` to see the fruits of your hard labor
+
+  ```py
+  # Import cars data
+  import pandas as pd
+  cars = pd.read_csv('cars.csv', index_col = 0)
+
+  # Use .apply(str.upper)
+  for lab, row in cars.iterrows() :
+      cars.loc[lab, "COUNTRY"] = row["country"].upper()
+  ```
+
+[⬆️ Go to Context](#context)
+
+### Case Study: Hacker Statistics
+
+#### [Random float](./05%20Case%20Study%20Hacker%20Statistics/01_random_float.py)
+
+- Import `numpy` as `np`.
+- Use `seed()` to set the seed; as an argument, pass `123`.
+- Generate your first random float with `rand()` and `print` it out.
+
+  ```py
+  # Import numpy as np
+
+
+  # Set the seed
+
+
+  # Generate and print random float
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Roll the dice](./05%20Case%20Study%20Hacker%20Statistics/02_roll_the_dice.py)
+
+- Use `randint()` with the appropriate arguments to randomly generate the integer `1, 2, 3, 4, 5 or 6`. This simulates a dice. Print it out.
+- Repeat the outcome to see if the second throw is different. Again, print out the result.
+
+  ```py
+  # Import numpy and set seed
+  import numpy as np
+  np.random.seed(123)
+
+  # Use randint() to simulate a dice
+
+
+  # Use randint() again
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Determine your next move](./05%20Case%20Study%20Hacker%20Statistics/03_determine_your_next_move.py)
+
+- Roll the dice. Use `randint()` to create the variable `dice`.
+- Finish the `if-elif-else` construct by replacing `___`:
+- If dice is `1 or 2`, you go one step down.
+- if dice is `3, 4 or 5`, you go one step up.
+- Else, you throw the `dice` again. The number on the `dice` is the number of steps you go up.
+- Print out `dice` and step. Given the value of `dice`, was step updated correctly?
+
+  ```py
+  # NumPy is imported, seed is set
+
+  # Starting step
+  step = 50
+
+  # Roll the dice
+
+
+  # Finish the control construct
+  if dice <= 2 :
+      step = step - 1
+  elif ___ :
+      ___
+  ___ :
+      step = step + np.random.randint(1,7)
+
+  # Print out dice and step
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [The next step](./05%20Case%20Study%20Hacker%20Statistics/04_the_next_step.py)
+
+- Make a list `random_walk` that contains the first step, which is the integer 0.
+- Finish the for loop:
+  - The loop should run 100 times.
+  - On each iteration, set step equal to the last element in the `random_walk` list. You can use the index ` -1` for this.
+  - Next, let the `if-elif-else` construct update step for you.
+  - The code that appends step to `random_walk` is already coded.
+  - Print out `random_walk`.
+
+  ```py
+  # NumPy is imported, seed is set
+
+  # Initialize random_walk
+
+
+  # Complete the ___
+  for x in ___(___) :
+      # Set step: last element in random_walk
+      ___
+
+      # Roll the dice
+      dice = np.random.randint(1,7)
+
+      # Determine next step
+      if dice <= 2:
+          step = step - 1
+      elif dice <= 5:
+          step = step + 1
+      else:
+          step = step + np.random.randint(1,7)
+
+      # append next_step to random_walk
+      random_walk.append(step)
+
+  # Print random_walk
+
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [How low can you go?](./05%20Case%20Study%20Hacker%20Statistics/05_how_low_can_you_go.py)
+
+- Use `max()` in a similar way to make sure that step doesn't go below zero if `dice <= 2`.
+- Hit Submit *Answer* and check the contents of `random_walk`.
+
+  ```py
+  # NumPy is imported, seed is set
+
+  # Initialize random_walk
+  random_walk = [0]
+
+  for x in range(100) :
+      step = random_walk[-1]
+      dice = np.random.randint(1,7)
+
+      if dice <= 2:
+          # Replace below: use max to make sure step can't go below 0
+          step = step - 1
+      elif dice <= 5:
+          step = step + 1
+      else:
+          step = step + np.random.randint(1,7)
+
+      random_walk.append(step)
+
+  print(random_walk)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Visualize the walk](./05%20Case%20Study%20Hacker%20Statistics/06_visualize_the_walk.py)
+
+- Add some lines of code after the for loop:
+  - Import `matplotlib.pyplot` as `plt`.
+  - Use `plt.plot()` to plot random_walk.
+  - Finish off with `plt.show()` to actually display the `plot`.
+
+  ```py
+  # NumPy is imported, seed is set
+
+  # Initialization
+  random_walk = [0]
+
+  for x in range(100) :
+      step = random_walk[-1]
+      dice = np.random.randint(1,7)
+
+      if dice <= 2:
+          step = max(0, step - 1)
+      elif dice <= 5:
+          step = step + 1
+      else:
+          step = step + np.random.randint(1,7)
+
+      random_walk.append(step)
+
+  # Import matplotlib.pyplot as plt
+
+
+  # Plot random_walk
+
+
+  # Show the plot
+
+  ```
+
+  ![Visualize the walk](https://i.imgur.com/YKFTHmZ.png)
+
+[⬆️ Go to Context](#context)
+
+#### [Simulate multiple walks](./05%20Case%20Study%20Hacker%20Statistics/07_simulate_multiple_walks.py)
+
+- Fill in the specification of the for loop so that the random walk is simulated five times.
+- After the `random_walk` array is entirely populated, append the array to the `all_walks` list.
+- Finally, after the top-level for loop, print out `all_walks`.
+
+  ```py
+  # NumPy is imported; seed is set
+
+  # Initialize all_walks (don't change this line)
+  all_walks = []
+
+  # Simulate random walk five times
+  for i in ___ :
+
+      # Code from before
+      random_walk = [0]
+      for x in range(100) :
+          step = random_walk[-1]
+          dice = np.random.randint(1,7)
+
+          if dice <= 2:
+              step = max(0, step - 1)
+          elif dice <= 5:
+              step = step + 1
+          else:
+              step = step + np.random.randint(1,7)
+          random_walk.append(step)
+
+      # Append random_walk to all_walks
+      ___
+
+  # Print all_walks
+  ___
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Visualize all walks](./05%20Case%20Study%20Hacker%20Statistics/08_visualize_all_walks.py)
+
+- Use `np.array()` to convert `all_walks` to a NumPy array, `np_aw`.
+- Try to use `plt.plot()` on `np_aw`. Also include `plt.show()`. Does it work out of the box?
+- Transpose `np_aw` by calling np.transpose() on np_aw. Call the result `np_aw_t`. Now every row in `np_all_walks` represents the position after 1 throw for the five random walks.
+- Use `plt.plot()` to plot `np_aw_t`; also include a `plt.show()`. Does it look better this time?
+
+  ```py
+  # numpy and matplotlib imported, seed set.
+
+  # initialize and populate all_walks
+  all_walks = []
+  for i in range(5) :
+      random_walk = [0]
+      for x in range(100) :
+          step = random_walk[-1]
+          dice = np.random.randint(1,7)
+          if dice <= 2:
+              step = max(0, step - 1)
+          elif dice <= 5:
+              step = step + 1
+          else:
+              step = step + np.random.randint(1,7)
+          random_walk.append(step)
+      all_walks.append(random_walk)
+
+  # Convert all_walks to NumPy array: np_aw
+
+
+  # Plot np_aw and show
+
+
+  # Clear the figure
+  plt.clf()
+
+  # Transpose np_aw: np_aw_t
+
+
+  # Plot np_aw_t and show
+  ```
+
+  ![Visualize all walks](https://i.imgur.com/9qkGLcl.png)
+
+[⬆️ Go to Context](#context)
+
+#### [Implement clumsiness](./05%20Case%20Study%20Hacker%20Statistics/09_implement_clumsiness.py)
+
+- Change the `range()` function so that the simulation is performed `20` times.
+- Finish the if condition so that step is set to `0` if a random `float` is less or equal to `0.005`. Use `np.random.rand()`.
+
+  ```py
+  # numpy and matplotlib imported, seed set
+
+  # clear the plot so it doesn't get cluttered if you run this many times
+  plt.clf()
+
+  # Simulate random walk 20 times
+  all_walks = []
+  for i in range(5) :
+      random_walk = [0]
+      for x in range(100) :
+          step = random_walk[-1]
+          dice = np.random.randint(1,7)
+          if dice <= 2:
+              step = max(0, step - 1)
+          elif dice <= 5:
+              step = step + 1
+          else:
+              step = step + np.random.randint(1,7)
+
+          # Implement clumsiness
+          if ___ :
+              step = 0
+
+          random_walk.append(step)
+      all_walks.append(random_walk)
+
+  # Create and plot np_aw_t
+  np_aw_t = np.transpose(np.array(all_walks))
+  plt.plot(np_aw_t)
+  plt.show()
+  ```
+
+  ![Implement clumsiness](https://i.imgur.com/4jFeMtv.png)
+
+[⬆️ Go to Context](#context)
+
+#### [Plot the distribution](./05%20Case%20Study%20Hacker%20Statistics/10_plot_the_distribution.py)
+
+- To make sure we've got enough simulations, go crazy. Simulate the random walk `500` times.
+- From `np_aw_t`, select the last row. This contains the endpoint of all `500` random walks you've simulated. Store this NumPy array as ends.
+- Use `plt.hist()` to build a histogram of ends. Don't forget `plt.show()` to display the `plot`.
+
+
+  ```py
+  # numpy and matplotlib imported, seed set
+
+  # Simulate random walk 500 times
+  all_walks = []
+  for i in range(500) :
+      random_walk = [0]
+      for x in range(100) :
+          step = random_walk[-1]
+          dice = np.random.randint(1,7)
+          if dice <= 2:
+              step = max(0, step - 1)
+          elif dice <= 5:
+              step = step + 1
+          else:
+              step = step + np.random.randint(1,7)
+          if np.random.rand() <= 0.001 :
+              step = 0
+          random_walk.append(step)
+      all_walks.append(random_walk)
+
+  # Create and plot np_aw_t
+  np_aw_t = np.transpose(np.array(all_walks))
+
+  # Select last row from np_aw_t: ends
+  ____ = ____[____,____]
+
+  # Plot histogram of ends, display plot
+  ____
+  ____
+  ```
+
+  ![Plot the distribution](https://i.imgur.com/jtrJxgq.png)
+
+[⬆️ Go to Context](#context)
+
+#### Calculate the odds
+
+- The histogram of the previous exercise was created from a NumPy array `ends`, that contains `500` integers. Each integer represents the end point of a random walk. To calculate the chance that this end point is greater than or equal to 60, you can count the number of integers in `ends` that are greater than or equal to 60 and divide that number by `500`, the total number of simulations.
+- Well then, what's the estimated chance that you'll reach at least `60` steps high if you play this Empire State Building game? The `ends` array is everything you need; it's available in your Python session so you can calculate it.
+
+  - [ ] 48.8%
+  - [ ] 76.6%
+  - [ ] 78.4%
+  - [ ] 95.9%
+
+  > [Answer](# "78.4%")
+
+[⬆️ Go to Context](#context)
