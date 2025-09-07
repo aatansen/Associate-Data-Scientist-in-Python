@@ -48,7 +48,8 @@
 
 ## **[Introduction to Python](https://www.datacamp.com/courses/intro-to-python-for-data-science)**
 
-- Course Instructor: [Hugo Bowne-Anderson](https://www.linkedin.com/in/hugo-bowne-anderson-045939a5/)
+- Course Instructor
+  - [Hugo Bowne-Anderson](https://www.linkedin.com/in/hugo-bowne-anderson-045939a5/)
 - Collaborators
   - [Vincent Vankrunkelsven](https://www.linkedin.com/in/vincent-vankrunkelsven-130248103/)
   - [Filip Schouwenaars](https://www.linkedin.com/in/fschouw/)

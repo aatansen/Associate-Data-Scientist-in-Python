@@ -4,3 +4,4 @@
 
 - **[01 Introduction to Python](./01%20Introduction%20to%20Python/)**
 - **[02 Intermediate Python](./02%20Intermediate%20Python/)**
+- **[03 Data Manipulation with pandas](./03%20Data%20Manipulation%20with%20pandas/)**
