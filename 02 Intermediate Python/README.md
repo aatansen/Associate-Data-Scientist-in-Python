@@ -972,7 +972,7 @@ if room == "kit" :
 
 [⬆️ Go to Context](#context)
 
-#### [Add else](./03%20Logic,%20Control%20Flow%20and%20Filtering/01_equality.py)
+#### [Add else](./03%20Logic,%20Control%20Flow%20and%20Filtering/07_add_else.py)
 
 - Add an else statement to the second control structure so that "`pretty small.`" is printed out if `area > 15` evaluates to `False`.
 
