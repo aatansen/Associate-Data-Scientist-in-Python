@@ -3,6 +3,7 @@
 </div>
 
 # **Context**
+
 - [**Context**](#context)
   - [**Data Manipulation with pandas**](#data-manipulation-with-pandas)
     - [Transforming DataFrames](#transforming-dataframes)
@@ -12,6 +13,8 @@
       - [Subsetting columns](#subsetting-columns)
       - [Subsetting rows](#subsetting-rows)
       - [Subsetting rows by categorical variables](#subsetting-rows-by-categorical-variables)
+      - [Adding new columns](#adding-new-columns)
+      - [Combo-attack](#combo-attack)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -199,6 +202,50 @@
 
   # See the result
   print(mojave_homelessness)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Adding new columns](./01%20Transforming%20DataFrames/07_adding_new_columns.py)
+
+- Add a new column to `homelessness`, named `total`, containing the sum of the `individuals` and `family_members` columns.
+- Add another column to `homelessness`, named `p_homeless`, containing the proportion of the `total` homeless population to the total population in each state `state_pop`.
+
+  ```py
+  # Add total col as sum of individuals and family_members
+  ____
+
+  # Add p_homeless col as proportion of total homeless population to the state population
+  ____
+
+  # See the result
+  print(homelessness)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Combo-attack](./01%20Transforming%20DataFrames/08_combo_attack.py)
+
+- Add a column to `homelessness`, `indiv_per_10k`, containing the number of homeless individuals per ten thousand people in each state, using `state_pop` for state population.
+- Subset rows where `indiv_per_10k` is higher than `20`, assigning to `high_homelessness`.
+- Sort `high_homelessness` by descending `indiv_per_10k`, assigning to `high_homelessness_srt`.
+- Select only the `state` and `indiv_per_10k` columns of `high_homelessness_srt` and save as `result`. *Look at the `result`.*
+
+  ```py
+  # Create indiv_per_10k col as homeless individuals per 10k state pop
+  homelessness["indiv_per_10k"] = 10000 * ____ / ____
+
+  # Subset rows for indiv_per_10k greater than 20
+  high_homelessness = ____
+
+  # Sort high_homelessness by descending indiv_per_10k
+  high_homelessness_srt = ____
+
+  # From high_homelessness_srt, select the state and indiv_per_10k cols
+  result = ____
+
+  # See the result
+  print(result)
   ```
 
 [⬆️ Go to Context](#context)
