@@ -15,6 +15,10 @@
       - [Subsetting rows by categorical variables](#subsetting-rows-by-categorical-variables)
       - [Adding new columns](#adding-new-columns)
       - [Combo-attack](#combo-attack)
+    - [Aggregating DataFrames](#aggregating-dataframes)
+      - [Mean and median](#mean-and-median)
+      - [Summarizing dates](#summarizing-dates)
+      - [Efficient summaries](#efficient-summaries)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -246,6 +250,83 @@
 
   # See the result
   print(result)
+  ```
+
+[⬆️ Go to Context](#context)
+
+### [Aggregating DataFrames](./02%20Aggregating%20DataFrames/)
+
+#### [Mean and median](./02%20Aggregating%20DataFrames/01_mean_and_median.py)
+
+- Explore your new DataFrame first by printing the first few rows of the `sales` DataFrame.
+- Print information about the columns in `sales`.
+- Print the mean of the `weekly_sales` column.
+- Print the median of the `weekly_sales` column.
+
+  ```py
+  # Print the head of the sales DataFrame
+  print(___)
+
+  # Print the info about the sales DataFrame
+  print(___)
+
+  # Print the mean of weekly_sales
+  print(___)
+
+  # Print the median of weekly_sales
+  print(___)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Summarizing dates](./02%20Aggregating%20DataFrames/02_summarizing_dates.py)
+
+- Print the maximum of the `date` column.
+- Print the minimum of the `date` column.
+
+  ```py
+  # Print the maximum of the date column
+  ___
+
+  # Print the minimum of the date column
+  ___
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Efficient summaries](./02%20Aggregating%20DataFrames/03_efficient_summaries.py)
+
+- Use the custom `iqr` function defined for you along with `.agg()` to print the IQR of the `temperature_c` column of `sales`.
+
+  ```py
+  # A custom IQR function
+  def iqr(column):
+      return column.quantile(0.75) - column.quantile(0.25)
+
+  # Print IQR of the temperature_c column
+  print(____)
+  ```
+
+- Update the column selection to use the custom `iqr` function with `.agg()` to print the IQR of `temperature_c`, `fuel_price_usd_per_l`, and `unemployment`, in that order.
+
+  ```py
+  # A custom IQR function
+  def iqr(column):
+      return column.quantile(0.75) - column.quantile(0.25)
+
+  # Update to print IQR of temperature_c, fuel_price_usd_per_l, & unemployment
+  print(sales[["temperature_c", ____, ____]].agg(iqr))
+  ```
+
+- Update the aggregation functions called by `.agg()`: include `iqr` and `"median"` in that order.
+
+  ```py
+  # Create a custom IQR function
+  def iqr(column):
+      return column.quantile(0.75) - column.quantile(0.25)
+
+  # Update to print IQR and median of temperature_c, fuel_price_usd_per_l, & unemployment
+  print(sales[["temperature_c", "fuel_price_usd_per_l", "unemployment"]].agg(iqr))
   ```
 
 [⬆️ Go to Context](#context)
