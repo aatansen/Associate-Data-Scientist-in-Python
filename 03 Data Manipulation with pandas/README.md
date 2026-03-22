@@ -19,6 +19,8 @@
       - [Mean and median](#mean-and-median)
       - [Summarizing dates](#summarizing-dates)
       - [Efficient summaries](#efficient-summaries)
+      - [Cumulative statistics](#cumulative-statistics)
+      - [Dropping duplicates](#dropping-duplicates)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -327,6 +329,54 @@
 
   # Update to print IQR and median of temperature_c, fuel_price_usd_per_l, & unemployment
   print(sales[["temperature_c", "fuel_price_usd_per_l", "unemployment"]].agg(iqr))
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Cumulative statistics](./02%20Aggregating%20DataFrames/04_cumulative_statistics.py)
+
+- Sort the rows of `sales_1_1` by the `date` column in ascending order.
+- Get the cumulative sum of `weekly_sales` and add it as a new column of `sales_1_1` called `cum_weekly_sales`.
+- Get the cumulative maximum of `weekly_sales`, and add it as a column called `cum_max_sales`.
+- Print the `date`, `weekly_sales`, `cum_weekly_sales`, and `cum_max_sales` columns.
+
+  ```py
+  # Sort sales_1_1 by date
+  sales_1_1 = ____
+
+  # Get the cumulative sum of weekly_sales, add as cum_weekly_sales col
+  sales_1_1[____] = ____
+
+  # Get the cumulative max of weekly_sales, add as cum_max_sales col
+  ____
+
+  # See the columns you calculated
+  print(sales_1_1[["date", "weekly_sales", "cum_weekly_sales", "cum_max_sales"]])
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Dropping duplicates](./02%20Aggregating%20DataFrames/05_dropping_duplicates.py)
+
+- Remove rows of `sales` with duplicate pairs of `store` and `type` and save as `store_types` and print the head.
+- Remove rows of `sales` with duplicate pairs of `store` and `department` and save as `store_depts` and print the head.
+- Subset the rows that are holiday weeks using the `is_holiday` column, and drop the duplicate `date`s, saving as `holiday_dates`.
+- Select the `date` column of `holiday_dates`, and print.
+
+  ```py
+  # Drop duplicate store/type combinations
+  store_types = ____
+  print(store_types.head())
+
+  # Drop duplicate store/department combinations
+  store_depts = ____
+  print(store_depts.head())
+
+  # Subset the rows where is_holiday is True and drop duplicate dates
+  holiday_dates = sales[sales[____]].drop_duplicates(____)
+
+  # Print date col of holiday_dates
+  print(____)
   ```
 
 [⬆️ Go to Context](#context)
