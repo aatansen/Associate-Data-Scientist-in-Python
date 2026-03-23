@@ -21,6 +21,8 @@
       - [Efficient summaries](#efficient-summaries)
       - [Cumulative statistics](#cumulative-statistics)
       - [Dropping duplicates](#dropping-duplicates)
+      - [Counting categorical variables](#counting-categorical-variables)
+      - [What percent of sales occurred at each store type](#what-percent-of-sales-occurred-at-each-store-type)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -377,6 +379,60 @@
 
   # Print date col of holiday_dates
   print(____)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Counting categorical variables](./02%20Aggregating%20DataFrames/06_counting_categorical_variables.py)
+
+- Count the number of stores of each store `type` in `store_types`.
+- Count the proportion of stores of each store `type` in `store_types`.
+- Count the number of stores of each `department` in `store_depts`, sorting the counts in descending order.
+- Count the proportion of stores of each `department` in `store_depts`, sorting the proportions in descending order.
+
+  ```py
+  # Count the number of stores of each type
+  store_counts = ____
+  print(store_counts)
+
+  # Get the proportion of stores of each type
+  store_props = ____
+  print(store_props)
+
+  # Count the number of stores for each department and sort
+  dept_counts_sorted = ____
+  print(dept_counts_sorted)
+
+  # Get the proportion of stores in each department and sort
+  dept_props_sorted = ____.____(sort=____, normalize=____)
+  print(dept_props_sorted)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [What percent of sales occurred at each store type](./02%20Aggregating%20DataFrames/07_what_percent_of_sales_occurred_at_each_store_type.PY)
+
+- Calculate the total `weekly_sales` over the whole dataset.
+- Subset for `type` `"A"` stores, and calculate their total weekly sales.
+- Do the same for `type` `"B"` and `type` `"C"` stores.
+- Combine the A/B/C results into a list, and divide by `sales_all` to get the proportion of sales by type.
+
+  ```py
+  # Calc total weekly sales
+  sales_all = ____["____"].____()
+
+  # Subset for type A stores, calc total weekly sales
+  sales_A = ____[____["____"] == "____"]["____"].____()
+
+  # Subset for type B stores, calc total weekly sales
+  sales_B = ____
+
+  # Subset for type C stores, calc total weekly sales
+  sales_C = ____
+
+  # Get proportion for each type
+  sales_propn_by_type = [sales_A, ____, ____] / ____
+  print(sales_propn_by_type)
   ```
 
 [⬆️ Go to Context](#context)
