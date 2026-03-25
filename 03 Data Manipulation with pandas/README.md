@@ -23,6 +23,9 @@
       - [Dropping duplicates](#dropping-duplicates)
       - [Counting categorical variables](#counting-categorical-variables)
       - [What percent of sales occurred at each store type](#what-percent-of-sales-occurred-at-each-store-type)
+      - [Calculations with groupby](#calculations-with-groupby)
+      - [Multiple grouped summaries](#multiple-grouped-summaries)
+      - [Pivoting on one variable](#pivoting-on-one-variable)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -433,6 +436,88 @@
   # Get proportion for each type
   sales_propn_by_type = [sales_A, ____, ____] / ____
   print(sales_propn_by_type)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Calculations with groupby](./02%20Aggregating%20DataFrames/08_calculations_with_groupby.py)
+
+- Group `sales` by `"type"`, take the sum of `"weekly_sales"`, and store as `sales_by_type`.
+- Calculate the proportion of sales at each store type by dividing by the sum of `sales_by_type`. Assign to `sales_propn_by_type`.
+
+  ```py
+  # Group by type; calc total weekly sales
+  sales_by_type = sales.____("____")["____"].____()
+
+  # Get proportion for each type
+  sales_propn_by_type = ____ / sum(____)
+  print(sales_propn_by_type)
+  ```
+
+- Group `sales` by `"type"` and "`is_holiday`", take the sum of `weekly_sales`, and store as `sales_by_type_is_holiday`.
+
+  ```py
+  # From previous step
+  sales_by_type = sales.groupby("type")["weekly_sales"].sum()
+
+  # Group by type and is_holiday; calc total weekly sales
+  sales_by_type_is_holiday = ____
+  print(sales_by_type_is_holiday)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Multiple grouped summaries]()
+
+- Get the min, max, mean, and median of `weekly_sales` for each store type using `.groupby()` and `.agg()`. Store this as `sales_stats`.
+- Get the min, max, mean, and median of `unemployment` and `fuel_price_usd_per_l` for each store type. Store this as `unemp_fuel_stats`.
+
+  ```py
+  # For each store type, aggregate weekly_sales: get min, max, mean, and median
+  sales_stats = ____
+
+  # Print sales_stats
+  print(sales_stats)
+
+  # For each store type, aggregate unemployment and fuel_price_usd_per_l: get min, max, mean, and median
+  unemp_fuel_stats = ____
+
+  # Print unemp_fuel_stats
+  print(unemp_fuel_stats)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Pivoting on one variable](./02%20Aggregating%20DataFrames/10_pivoting_on_one_variable.py)
+
+- Get the mean `weekly_sales` by `type` using `.pivot_table()` and store as `mean_sales_by_type`.
+
+  ```py
+  # Pivot for mean weekly_sales for each store type
+  mean_sales_by_type = sales.___
+
+  # Print mean_sales_by_type
+  print(mean_sales_by_type)
+  ```
+
+- Get the mean and median of `weekly_sales` by `type` using `.pivot_table()` and store as `mean_med_sales_by_type`.
+
+```py
+# Pivot for mean and median weekly_sales for each store type
+mean_med_sales_by_type = sales.pivot_table(___)
+
+# Print mean_med_sales_by_type
+print(mean_med_sales_by_type)
+```
+
+- Get the mean of `weekly_sales` by `type` and `is_holiday` using `.pivot_table()` and store as `mean_sales_by_type_holiday`.
+
+  ```py
+  # Pivot for mean weekly_sales by store type and holiday
+  mean_sales_by_type_holiday = sales.pivot_table(___)
+
+  # Print mean_sales_by_type_holiday
+  print(mean_sales_by_type_holiday)
   ```
 
 [⬆️ Go to Context](#context)
