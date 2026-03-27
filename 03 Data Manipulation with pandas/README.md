@@ -26,6 +26,7 @@
       - [Calculations with groupby](#calculations-with-groupby)
       - [Multiple grouped summaries](#multiple-grouped-summaries)
       - [Pivoting on one variable](#pivoting-on-one-variable)
+      - [Fill in missing values and sum values with pivot tables](#fill-in-missing-values-and-sum-values-with-pivot-tables)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -518,6 +519,24 @@ print(mean_med_sales_by_type)
 
   # Print mean_sales_by_type_holiday
   print(mean_sales_by_type_holiday)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Fill in missing values and sum values with pivot tables](./02%20Aggregating%20DataFrames/11_fill_in_missing_values_and_sum_values_with_pivot_tables.py)
+
+- Print the mean `weekly_sales` by `department` and `type`, filling in any missing values with `0`.
+
+  ```py
+  # Print mean weekly_sales by department and type; fill missing values with 0
+  print(sales.pivot_table(___))
+  ```
+
+- Print the mean `weekly_sales` by `department` and `type`, filling in any missing values with `0` and summing all rows and columns.
+
+  ```py
+  # Print the mean weekly_sales by department and type; fill missing values with 0s; sum all rows and cols
+  print(sales.pivot_table(values="weekly_sales", index="department", columns="type", ____))
   ```
 
 [⬆️ Go to Context](#context)
