@@ -27,6 +27,8 @@
       - [Multiple grouped summaries](#multiple-grouped-summaries)
       - [Pivoting on one variable](#pivoting-on-one-variable)
       - [Fill in missing values and sum values with pivot tables](#fill-in-missing-values-and-sum-values-with-pivot-tables)
+    - [Slicing and Indexing DataFrames](#slicing-and-indexing-dataframes)
+      - [Setting and removing indexes](#setting-and-removing-indexes)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -503,13 +505,13 @@
 
 - Get the mean and median of `weekly_sales` by `type` using `.pivot_table()` and store as `mean_med_sales_by_type`.
 
-```py
-# Pivot for mean and median weekly_sales for each store type
-mean_med_sales_by_type = sales.pivot_table(___)
+  ```py
+  # Pivot for mean and median weekly_sales for each store type
+  mean_med_sales_by_type = sales.pivot_table(___)
 
-# Print mean_med_sales_by_type
-print(mean_med_sales_by_type)
-```
+  # Print mean_med_sales_by_type
+  print(mean_med_sales_by_type)
+  ```
 
 - Get the mean of `weekly_sales` by `type` and `is_holiday` using `.pivot_table()` and store as `mean_sales_by_type_holiday`.
 
@@ -538,5 +540,38 @@ print(mean_med_sales_by_type)
   # Print the mean weekly_sales by department and type; fill missing values with 0s; sum all rows and cols
   print(sales.pivot_table(values="weekly_sales", index="department", columns="type", ____))
   ```
+
+[⬆️ Go to Context](#context)
+
+### [Slicing and Indexing DataFrames](./03%20Slicing%20and%20Indexing%20DataFrames/)
+
+#### [Setting and removing indexes](./03%20Slicing%20and%20Indexing%20DataFrames/01_setting_and_removing_indexes.py)
+
+- *Look at `temperatures`*.
+- Set the index of `temperatures` to `"city"`, assigning to `temperatures_ind`.
+- *Look at `temperatures_ind`. How is it different from `temperatures`?*
+- Reset the index of `temperatures_ind`, keeping its contents.
+- Reset the index of `temperatures_ind`, dropping its contents.
+
+  ```py
+  # Look at temperatures
+  print(____)
+
+  # Set the index of temperatures to city
+  temperatures_ind = ____
+
+  # Look at temperatures_ind
+  print(____)
+
+  # Reset the temperatures_ind index, keeping its contents
+  print(____)
+
+  # Reset the temperatures_ind index, dropping its contents
+  print(____)
+  ```
+
+[⬆️ Go to Context](#context)
+
+
 
 [⬆️ Go to Context](#context)
