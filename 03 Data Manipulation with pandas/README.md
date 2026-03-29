@@ -29,6 +29,9 @@
       - [Fill in missing values and sum values with pivot tables](#fill-in-missing-values-and-sum-values-with-pivot-tables)
     - [Slicing and Indexing DataFrames](#slicing-and-indexing-dataframes)
       - [Setting and removing indexes](#setting-and-removing-indexes)
+      - [Subsetting with .loc](#subsetting-with-loc)
+      - [Setting multi-level indexes](#setting-multi-level-indexes)
+      - [Sorting by index values](#sorting-by-index-values)
 
 ## **[Data Manipulation with pandas](https://www.datacamp.com/courses/data-manipulation-with-pandas)**
 
@@ -572,6 +575,59 @@
 
 [⬆️ Go to Context](#context)
 
+#### [Subsetting with .loc](./03%20Slicing%20and%20Indexing%20DataFrames/02_subsetting_with_loc.py)
 
+- Create a list called `cities` that contains "London" and "Paris".
+- Use `[]` subsetting to filter `temperatures` for rows where the `city` column takes a value in the `cities` list.
+- Use `.loc[]` subsetting to filter `temperatures_ind` for rows where the city is in the `cities` list.
+
+  ```py
+  # Make a list of cities to subset on
+  cities = ["____", "____"]
+
+  # Subset temperatures using square brackets
+  print(temperatures[____])
+
+  # Subset temperatures_ind using .loc[]
+  print(temperatures_ind.loc[____])
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### Setting multi-level indexes
+
+- Set the index of `temperatures` to the `"country"` and `"city"` columns, and assign this to `temperatures_ind`.
+- Specify two country/city pairs to keep: `"Brazil"`/`"Rio De Janeiro"` and `"Pakistan"`/`"Lahore"`, assigning to `rows_to_keep`.
+- Print and subset `temperatures_ind` for `rows_to_keep` using `.loc[]`.
+
+  ```py
+  # Index temperatures by country & city
+  temperatures_ind = ____
+
+  # List of tuples: Brazil, Rio De Janeiro & Pakistan, Lahore
+  rows_to_keep = [____]
+
+  # Subset for rows to keep
+  print(temperatures_ind.____)
+  ```
+
+[⬆️ Go to Context](#context)
+
+#### [Sorting by index values](./03%20Slicing%20and%20Indexing%20DataFrames/04_sorting_by_index_values.py)
+
+- Sort`temperatures_ind`by the index values.
+- Sort`temperatures_ind`by the index values at the`"city"`level.
+- Sort`temperatures_ind`by ascending country then descending city.
+
+  ```py
+  # Sort temperatures_ind by index values
+  print(____)
+
+  # Sort temperatures_ind by index values at the city level
+  print(____)
+
+  # Sort temperatures_ind by country then descending city
+  print(____)
+  ```
 
 [⬆️ Go to Context](#context)
